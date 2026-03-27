@@ -106,7 +106,9 @@ function Nearby() {
     }
     navigator.geolocation.getCurrentPosition(
       p => {
-        window.open(`https://m.map.naver.com/search2/search.naver?query=주유소&sm=hty&style=v5&lat=${p.coords.latitude}&lng=${p.coords.longitude}`, "_blank");
+        const lat = p.coords.latitude;
+        const lng = p.coords.longitude;
+        window.open(`https://map.naver.com/p/search/주유소?c=${lng},${lat},15,0,0,0,dh`, "_blank");
         setLoading(false);
       },
       () => {
