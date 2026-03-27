@@ -108,11 +108,11 @@ function Nearby() {
       p => {
         const lat = p.coords.latitude;
         const lng = p.coords.longitude;
-        window.open(`https://map.naver.com/p/search/주유소?c=${lng},${lat},15,0,0,0,dh`, "_blank");
+        window.open(`https://map.kakao.com/?q=주유소&lat=${lat}&lng=${lng}`, "_blank");
         setLoading(false);
       },
       () => {
-        window.open("https://m.search.naver.com/search.naver?query=내+주변+주유소+최저가", "_blank");
+        window.open("https://map.kakao.com/?q=주유소", "_blank");
         setLoading(false);
       },
       { enableHighAccuracy: true, timeout: 5000 }
@@ -131,7 +131,7 @@ function Nearby() {
             {loading ? "위치 확인 중..." : "📍 주변 싼 주유소 찾기"}
           </div>
           <div style={{ fontFamily: F, fontSize: 10, color: "rgba(255,255,255,0.35)", marginTop: 2 }}>
-            GPS → 네이버 지도 주유소 검색
+            GPS → 카카오맵 주유소 검색
           </div>
         </div>
         <span style={{ fontSize: 20, color: "rgba(255,255,255,0.3)" }}>{loading ? "⏳" : "→"}</span>
